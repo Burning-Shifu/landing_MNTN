@@ -1,20 +1,21 @@
 //Задает константы ///////////////////////////////////////////////////////////////
-const { src, dest, watch, series, parallel } = require('gulp');
-const scss = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat');
-const browsersync = require('browser-sync').create();
-const group_media = require('gulp-group-css-media-queries');
-const fileInclude = require('gulp-file-include');
-const uglify = require('gulp-uglify-es').default;
-const babel = require('gulp-babel');
-const del = require('del');
-const ttf2woff = require('gulp-ttf2woff');
-const ttf2woff2 = require('gulp-ttf2woff2');
-const imagemin = require("gulp-imagemin");
-const webp = require('gulp-webp');
-const webphtml = require('gulp-webp-html');
-const fonter = require('gulp-fonter');
+const { src, dest, watch, series, parallel } = require('gulp'),
+			scss = require('gulp-sass'),
+			autoprefixer = require('gulp-autoprefixer'),
+			cssmin = require('gulp-cssmin'),
+			concat = require('gulp-concat'),
+			browsersync = require('browser-sync').create(),
+			group_media = require('gulp-group-css-media-queries'),
+			fileInclude = require('gulp-file-include'),
+			uglify = require('gulp-uglify-es').default,
+			babel = require('gulp-babel'),
+			del = require('del'),
+			ttf2woff = require('gulp-ttf2woff'),
+			ttf2woff2 = require('gulp-ttf2woff2'),
+			imagemin = require("gulp-imagemin"),
+			webp = require('gulp-webp'),
+			webphtml = require('gulp-webp-html'),
+			fonter = require('gulp-fonter');
 let fs = require('fs');
 
 //Подключаем автообновление браузера ////////////////////////////////////////////////
@@ -78,9 +79,12 @@ function stylesLibs() {
 		'node_modules/normalize.css/normalize.css'
 		// 'node_modules/',
 	])
-		.pipe(scss({
-			outputStyle: 'compressed'
+		.pipe(autoprefixer({
+			overrideBrowserslist: ['last 5 versions'],
+			cascade: false,
+			grid: true
 		}))
+		.pipe(cssmin())
 		.pipe(concat('libs.min.css'))
 		.pipe(dest('dist/css/'))
 		.pipe(browsersync.stream())
@@ -117,7 +121,7 @@ function images() {
 		.pipe(browsersync.stream())
 }
 
-//Функция слежки за файлами. В данном случае следит за всеми файлами scss, html, js и изображениями в папке app в соответствующих подпапках.//////////////////////////////////////////////////////////////////////////////////
+//Функция слежки за файлами. В данном случае следит за всеми файлами scss, html, js и изображениями в папке app в соответствующих подпапках.///////////////////////////////////////////
 function watching() {
 	watch(['app/scss/**/*.scss'], styles);
 	watch(['app/**/*.html'], html);

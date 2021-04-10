@@ -21,17 +21,21 @@ a {
   cursor: pointer;
 }
 
-svg path {
-	fill:inherit;
-	stroke:inherit;
-}
+// svg path {
+// 	fill:inherit;
+// 	stroke:inherit;
+// }
 
 
 //Дежурные классы////////////////////
 .container {
-  max-width: 1200px;
+  max-width: 1460px;
   margin: 0 auto;
   padding: 0 15px;
+
+  &--wide {
+    max-width: 1760px;
+  }
 }
 
 .d-flex {
@@ -43,4 +47,63 @@ svg path {
   padding: 0;
 }
 
+.wrapper {
+  position: relative;
+  height: 100vh;
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(330.24deg, rgba(11, 29, 38, 0) 31%, #0B1D26 109%);
+    z-index: -1;
+  }
+}
+
 //Повторяющиеся элементы на сайте////////////////////////////////////
+
+.logo {
+  display: block;
+}
+
+.heading {
+  position: relative;
+  margin-bottom: 25px;
+  padding-left: 104px;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $accent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 72px;
+    height: 2px;
+    background-color: $accent;
+  }
+}
+
+.title {
+  font-family: 'Chronicle-Display', sans-serif ;
+  font-style: normal;
+}
+
+.btn {
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

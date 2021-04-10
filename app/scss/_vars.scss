@@ -2,7 +2,7 @@ $bg: #0b1d26;
 $accent: #fbd784;
 $text: #fff;
 
-$fontFamily: 'Jura', sans-serif;
+$fontFamily: 'Gilroy', sans-serif;
 
 @mixin phone {
   @media (max-width: 400px) { @content; }
