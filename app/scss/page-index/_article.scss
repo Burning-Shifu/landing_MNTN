@@ -35,12 +35,37 @@
 
   &__link {
     color: $accent;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $darken-accent;
+
+      .article__link-svg {
+        fill: $darken-accent;
+        animation: moveRight 1s linear infinite alternate;
+      }
+    }
+  
+    &:focus {
+      color: $darken-accent;
+      text-shadow: -2px -2px 5px $darken-accent;
+
+      .article__link-svg {
+        fill: $darken-accent;
+      }
+    }
+  
+    &:active {
+      text-shadow: 2px 2px 5px $darken-accent;
+    }
   }
 
   &__link-svg {
     position: relative;
     top: 3px;
+    fill: $accent;
     margin-left: 16px;
+    transition: fill 0.5s;
   }
 
   &__img {
@@ -49,4 +74,9 @@
     height: 720px;
     object-fit: cover;
   }
+}
+
+@keyframes moveRight { 
+  from {transform: translateX(0px);}
+  to {transform: translateX(10px);}
 }

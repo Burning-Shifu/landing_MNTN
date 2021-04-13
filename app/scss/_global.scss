@@ -1,5 +1,6 @@
 html {
 	box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *, *::before, *::after{
@@ -13,13 +14,17 @@ body {
   font-weight: 700;
 	color: $text;
 	background-color: $bg;
-  scroll-behavior: smooth;
 }
 
 a {
   text-decoration: none;
   outline: transparent;
   cursor: pointer;
+}
+
+svg {
+  fill: inherit;
+  stroke: inherit;
 }
 
 //Дежурные классы////////////////////
@@ -111,7 +116,19 @@ a {
 
 .btn {
   color: inherit;
-  border: none;
-  background-color: transparent;
   cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $accent;
+  }
+
+  &:focus {
+    color: $accent;
+    text-shadow: -2px -2px 5px $accent;
+  }
+
+  &:active {
+    text-shadow: 2px 2px 5px $accent;
+  }
 }

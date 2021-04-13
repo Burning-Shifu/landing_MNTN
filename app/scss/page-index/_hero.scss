@@ -13,6 +13,31 @@
   &__socials-link {
     display: block;
     margin-top: 13px;
+    outline: transparent;
+
+    &:hover {
+      .hero__socials-svg {
+        fill: $accent;
+      }
+    }
+
+    &:focus {
+      .hero__socials-svg {
+        transform: scale(1.2);
+      }
+    }
+
+    &:active {
+      .hero__socials-svg {
+        transform: scale(0.8);
+      }
+    }
+
+  }
+
+  &__socials-svg {
+    fill: $text;
+    transition: fill 0.5s;
   }
 
   &__center {
@@ -29,24 +54,31 @@
 
   &__scroll {
     padding: 0;
+
+    &:hover {
+      .hero__scroll-svg {
+        fill: $accent;
+        animation: moveDown 1s linear infinite alternate;
+      }
+    }
+
+    &:focus {
+      .hero__scroll-svg {
+        fill: $accent;
+      }
+    }
   }
 
   &__scroll-svg {
     position: relative;
     top: 6px;
     margin-left: 16px;
+    fill: $text;
+    transition: fill 0.5s;
   }
+}
 
-  &__progress {
-  }
-
-  &__progress-num {
-    display: block;
-    margin-bottom: 40px;
-    text-align: right;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+@keyframes moveDown { 
+  from {transform: translateY(0px);}
+  to {transform: translateY(10px);}
 }

@@ -5,12 +5,39 @@
   }
 
   &__link {
+    position: relative;
     display: inline-block;
     margin-right: 40px;
     color: inherit;
 
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 100px;
+      height: 2px;
+      background-color: $text;
+      transition: right 0.3s;
+    }
+
     &:last-child {
       margin-right: 0;
+    }
+
+    &:hover {
+      &::after {
+        right: 0;
+      }
+    }
+
+    &:focus {
+      outline: 1px dashed $accent;
+      outline-offset: 7px;
+    }
+
+    &:active {
+      outline-width: 2px;
     }
   }
 }

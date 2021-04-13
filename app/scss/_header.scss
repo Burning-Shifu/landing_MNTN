@@ -4,10 +4,6 @@
 
   &__inner {
     position: relative;
-  }
-
-  &__logo {
-    position: absolute;
-    left: 0;
+    justify-content: space-between;
   }
 }
