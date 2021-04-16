@@ -1,6 +1,27 @@
 .navbar {
   position: fixed;
   right: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s, background-color 0.3s;
+
+  @include tablet-down {
+    position: relative;
+  }
+
+  @include phone-down {
+    display: none;
+  }
+
+  &.navbar-bg {
+    background-color: rgba(0, 0, 0, 0.40);
+    transform: scale(0.8);
+  }
+
+  &__list {
+    list-style: none;
+  }
 
   &__num {
     position: relative;
@@ -26,7 +47,7 @@
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.39);
+      background-color: rgba(0, 0, 0, 0.60);
 
       &::after {
         opacity: 0.8;

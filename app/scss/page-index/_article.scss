@@ -1,15 +1,31 @@
 .article {
   margin-bottom: 200px;
 
+  @include tablet-down {
+    margin-bottom: 100px;
+  }
+
   &:nth-child(even) {
     .article__inner {
       flex-direction: row-reverse;
+
+      @include tablet-down {
+        flex-direction: column;
+      }
+    }
+
+    .article__content {
+      margin-right: 0;
     }
   }
 
   &__inner {
     justify-content: space-between;
     align-items: center;
+
+    @include tablet-down {
+      flex-direction: column;
+    }
   }
 
   &__content {
@@ -17,6 +33,18 @@
     max-width: 44.2%;
     width: 100%;
     margin-left: 150px;
+    margin-right: 25px;
+
+    @include desctop-down {
+      margin-left: 35px;
+    }
+
+    @include tablet-down {
+      max-width: calc(100% - 25px);
+      margin-left: 25px;
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
   }
 
   &__num {
@@ -27,6 +55,18 @@
     font-size: 240px;
     line-height: 186px;
     opacity: 0.1;
+
+    @include desctop-down {
+      left: -50px;
+      font-size: 130px;
+      line-height: 1.3em;
+    }
+
+    @include tablet-down {
+      top: -66px;
+      left: -25px;
+      font-size: 100px;
+    }
   }
 
   &__annotation {
@@ -69,10 +109,24 @@
   }
 
   &__img {
-    max-width: 565px;
+    --width: 565px;
+
+    max-width: var(--width);
     width: 100%;
-    height: 720px;
+    height: calc(var(--width) * 1.275);
     object-fit: cover;
+
+    @include desctop-down {
+      --width: 450px;
+    }
+
+    @include tablet-down {
+      --width: 400px;
+    }
+
+    @include tablet-down {
+      --width: 350px;
+    }
   }
 }
 

@@ -1,19 +1,41 @@
 .footer {
   padding-bottom: 120px;
 
+  @include phone-down {
+    padding-bottom: 60px;
+  }
+
   &__inner {
     justify-content: space-between;
+
+    @include phone-down {
+      flex-direction: column;
+    }
   }
 
   &__left {
     flex-direction: column;
+
+    @include tablet-down {
+      margin-right: 30px;
+    }
+
+    @include phone-down {
+      margin-right: 0;
+      margin-bottom: 30px;
+      text-align: center;
+    }
   }
 
   &__text {
     margin: 22px 0;
     max-width: 300px;
     width: 100%;
-    line-height: 32px
+    line-height: 32px;
+
+    @include phone-down {
+      max-width: 100%;
+    }
   }
 
   &__copyright {
@@ -21,12 +43,32 @@
     font-weight: 500;
     line-height: 32px;
     opacity: 0.5;
+
+    @include phone-down {
+      font-size: 16px;
+    }
+  }
+
+  &__nav {
+
+    @include phone-down {
+      justify-content: space-around;
+    }
   }
 
   &__menu {
 
     &:first-child {
       margin-right: 212px;
+
+      
+      @include desctop-down {
+        margin-right: 50px;
+      }
+
+      @include tablet-down {
+        margin-right: 30px;
+      }
     }
   }
 
@@ -35,6 +77,15 @@
     font-size: 24px;
     line-height: 32px;
     color: $accent;
+
+    @include tablet-down {
+      font-size: 20px;
+    }
+
+    @include phone-down {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
   }
 
   &__list {

@@ -14,6 +14,10 @@ body {
   font-weight: 700;
 	color: $text;
 	background-color: $bg;
+
+  @include phone-down {
+    font-size: 16px;
+  }
 }
 
 a {
@@ -90,6 +94,7 @@ svg {
   margin-bottom: 25px;
   padding-left: 104px;
   font-weight: 800;
+  line-height: 1.6em;
   letter-spacing: 6px;
   text-transform: uppercase;
   color: $accent;
@@ -98,10 +103,20 @@ svg {
     content: "";
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 14px;
     width: 72px;
     height: 2px;
     background-color: $accent;
+  }
+
+  @include phone-down {
+    font-size: 16px;
+    padding-left: 85px;
+
+    &::before {
+      top: 9px;
+      width: 60px;
+    }
   }
 }
 
@@ -111,7 +126,21 @@ svg {
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
-  line-height: 77px;
+  line-height: 1.2em;
+
+  @include desctop-down {
+    font-size: 56px;
+  }
+
+  @include tablet-down {
+    font-size: 42px;
+  }
+
+  @include phone-down {
+    margin: 18px 0;
+    font-size: 36px;
+    line-height: 1.5em;
+  }
 }
 
 .btn {

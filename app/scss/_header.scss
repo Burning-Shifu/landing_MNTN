@@ -2,8 +2,20 @@
   padding: 65px 0;
   text-align: center;
 
+  @include phone-down {
+    padding: 45px 0;
+  }
+
   &__inner {
     position: relative;
     justify-content: space-between;
+
+    @include phone {
+      flex-direction: column;
+
+      .logo {
+        margin-bottom: 25px;
+      }
+    }
   }
 }

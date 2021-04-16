@@ -1,19 +1,54 @@
 .hero {
   margin-top: 150px;
 
+  @include tablet-down {
+    margin-top: 50px;
+  }
+
   &__inner {
     justify-content: space-between;
     align-items: center;
+
+    @include phone-down {
+      flex-direction: column;
+    }
+  }
+
+  &__socials {
+
+    @include phone-down {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include phone-down {
+        display: block;
+        margin-bottom: 25px;
+        color: $accent;
+      }
+    }
   }
 
   &__socials-text {
     writing-mode: vertical-lr;
+
+    @include phone-down {
+      writing-mode: lr-tb;
+    }
   }
 
   &__socials-link {
     display: block;
     margin-top: 13px;
     outline: transparent;
+
+    @include phone-down {
+      display: inline-block;
+      margin-top: 0;
+      margin-left: 15px;
+    }
 
     &:hover {
       .hero__socials-svg {
@@ -38,18 +73,31 @@
   &__socials-svg {
     fill: $text;
     transition: fill 0.5s;
+
+    @include phone-down {
+      fill: $accent;
+    }
   }
 
   &__center {
     max-width: 59%;
     width: 100%;
+
+    @include phone-down {
+      max-width: 100%;
+      text-align: center;
+    }
   }
 
   &__title {
     margin: 30px 0;
     font-size: 88px;
-    line-height: 100px;
+    line-height: 1.14em;
     text-transform: capitalize;
+
+    @include phone-down {
+      margin: 20px 0;
+    }
   }
 
   &__scroll {
@@ -75,6 +123,13 @@
     margin-left: 16px;
     fill: $text;
     transition: fill 0.5s;
+  }
+
+  &__right {
+
+    @include tablet-down {
+      display: none;
+    }
   }
 }
 
